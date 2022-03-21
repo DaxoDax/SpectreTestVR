@@ -1,4 +1,4 @@
-# Outsource Development Test
+# SpectreXR Development Test
 
 The purpose of this test is to evaluate your development team for hire for outsourced development work by testing the following areas:
 - Unity Development (please use Unity version 2020.3.26f1)
