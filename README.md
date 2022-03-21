@@ -1,16 +1,11 @@
 # Outsource Development Test
 
 The purpose of this test is to evaluate your development team for hire for outsourced development work by testing the following areas:
-- Unity Development (please use Unity version 2018.4.3f1)
+- Unity Development (please use Unity version 2020.3.26f1)
 - Git Proficiency
 - Oculus Quest / Android Development
-- VR Interactions Using VRTK 3.3* - Simple tasks for the user to complete
 - VR Menu - Simple scroll menu with one item selectable
 - Completion Criteria - Ding Ding, you win, now exit to main menu
-
-** * Note that an older version of the Oculus integration package is necessary for this version of VRTK https://developer.oculus.com/downloads/package/unity-integration-archive/1.37.0/
-
-**Please do not use more than 2 to 4 developers on this test and please complete and return a loadable .apk for Quest within three days of receiving the test.**
 
 # Design and Instructions
 
@@ -31,8 +26,7 @@ The purpose of this test is to evaluate your development team for hire for outso
 * Please comment your code where applicable when intent may not be clear.
 * Please briefly explain your architectural choices in a separate document so we can better understand your design's intent with regards to extensibility, reusability, and maintainability.
 * Keep it simple but design the project's architecture so it can be scaled easily in the future. 
-* Use Unity version 2018.4.3f1
-* If you use any third party plugins, please let us know which ones and why.
+* If you use any third party assets, please let us know which ones and why.
 
 # Art Guidelines
 * Environment
@@ -61,4 +55,4 @@ If you would like to include simple vfx for the interaction, that would be great
 * Package as an application for Android to be deployed to an Oculus Quest - .apk
 * Send us the package with any documentation on the approach, intent, code standard and work and art work, as well as a link to a git repo with history showing your work.
 
-Thanks!
+Thanks and good luck!
