@@ -32,12 +32,8 @@ The purpose of this test is to evaluate your development team for hire for outso
 * Environment
  * Use the scene provided at Assets/Scenes/PlantSafety_Workshop.unity
 
-![Scene Preview](/images/scene.png)
 
  * The scene may consist of any props you would like to add, but they are not necessary, a main workbench / table where the interactions will take place is provided in Assets/Models/Workbench.FBX
-![drill_profile](/images/drill_profile.png)
-![drill_noBit](/images/drill_noBit.png)
-![drill_bit](/images/drill_bit.png)
 * VFX 
 If you would like to include simple vfx for the interaction, that would be great as vfx will be a part of actual development in the future if you are chosen.
 
