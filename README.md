@@ -14,7 +14,7 @@ The purpose of this test is to evaluate your development team for hire for outso
 * Menu Scene
   * Simple controller-selectable menu with more than one field - though only one field needs to actually work
   * Select the proper menu field to load the simulation
-* Simulation Loads
+* Simulation Scene
   * User is in a small workshop in front of a desk / work table with a pneumatic drill on the table and a pneumatic hose next to it, but not connected
   * There is a board with a screw in it, but not screwed all the way in 
   * Instructions pop up and prompt the user to pick up the drill in one hand and then grab the pneumatic hose and connect it to the drill
@@ -29,13 +29,9 @@ The purpose of this test is to evaluate your development team for hire for outso
 * If you use any third party assets, please let us know which ones and why.
 
 # Art Guidelines
-* Environment
- * Use the scene provided at Assets/Scenes/PlantSafety_Workshop.unity
-
-
- * The scene may consist of any props you would like to add, but they are not necessary, a main workbench / table where the interactions will take place is provided in Assets/Models/Workbench.FBX
-* VFX 
-If you would like to include simple vfx for the interaction, that would be great as vfx will be a part of actual development in the future if you are chosen.
+* Use the asset provided at Assets/Scenes/PlantSafety_Workshop.unity as your main scene
+* The scene may consist of any props you would like to add, but they are not necessary, some models are already provided in Assets/Models
+* You should create some simple VFX for the interactions
 
 # Audio Guidelines
 * Assets
@@ -44,7 +40,7 @@ If you would like to include simple vfx for the interaction, that would be great
    * Plug in the hose, it clicks
    * Etc …
 * Pop Ups / End 
-  * Pop ups can have a notification sound, but voice over is not necessary
+  * Pop ups can have a notification sound
   * End pop ups and any interactions with buttons, etc, should have audio
 
 # Package Guidelines
