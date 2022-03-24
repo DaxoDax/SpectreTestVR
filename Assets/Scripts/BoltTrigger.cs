@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class BoltTrigger : MonoBehaviour
 {
-    //public GameObject bolt;
-    //Rigidbody rb;
 
-    //private void Start()
-    //{
-    //    rb = bolt.GetComponent<Rigidbody>();
-    //}
+   public  AudioSource ass;
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if(collision.gameObject.tag == "Bolt")
-    //    {
-    //        rb.constraints = RigidbodyConstraints.FreezeAll;
-    //        rb.isKinematic = true;
-    //    }
-    //}
+    Rigidbody rb;
+    public GameObject bolt;
+
+    private void Start()
+    {
+        rb = bolt.GetComponent<Rigidbody>();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Bolt")
+        {
+           
+            if (!ass.isPlaying)
+            {
+                ass.Play();
+            }
+            rb.isKinematic = true;
+        }
+    }
+   
 }
