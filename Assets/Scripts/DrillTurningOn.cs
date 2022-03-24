@@ -43,8 +43,8 @@ public class DrillTurningOn : MonoBehaviour
         //position of trigger when drill is turned off
         Vector3 triggerOffPosition = new Vector3(drillTrigger.transform.localPosition.x, drillTrigger.transform.localPosition.y, maxLocalTriggerZ);
 
-        //Checking if the drill is grabbed in and if hose is pluged in to turn on the drill 
-        if (OVRInput.Get(triggerButtonLeft, OVRInput.Controller.LTouch) || OVRInput.Get(triggerButtonRight, OVRInput.Controller.RTouch) && grabbed == true && plugedIn == true)
+        //Checking if the drill is grabbed in and if hose is pluged in to turn on the drill for left hand 
+        if (OVRInput.Get(triggerButtonLeft, OVRInput.Controller.LTouch)  && grabbed == true && plugedIn == true)
         {
             //starts rotating drill top when drill is turned on
             drillTop.transform.Rotate(new Vector3(0f, drillTopRotation, 0f) * Time.deltaTime);
@@ -59,7 +59,23 @@ public class DrillTurningOn : MonoBehaviour
             }
         }
 
-        
+        //Checking if the drill is grabbed in and if hose is pluged in to turn on the drill for right hand 
+        else if (OVRInput.Get(triggerButtonRight, OVRInput.Controller.RTouch) && grabbed == true && plugedIn == true)
+        {
+            //starts rotating drill top when drill is turned on
+            drillTop.transform.Rotate(new Vector3(0f, drillTopRotation, 0f) * Time.deltaTime);
+
+            //lerping the trigger back when trigger is pressed
+            drillTrigger.transform.localPosition = Vector3.Lerp(drillTrigger.transform.localPosition, triggerOnPosition, Time.deltaTime * smooth);
+
+            //playing a drill sound
+            if (!ass.isPlaying)
+            {
+                ass.Play();
+            }
+        }
+
+
         else
         {
             //lerping the trigger forward when trigger is released
