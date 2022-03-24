@@ -16,7 +16,7 @@ public class SnapObject : MonoBehaviour
     //boolean variable for checking if the object is currently held by the player
     private bool grabbed;
 
-    public bool holdedByHand;
+    //public bool holdedByHand;
 
 
 
@@ -49,21 +49,21 @@ public class SnapObject : MonoBehaviour
     private void Update()
     {
 
-        holdedByHand = GetComponent<SnapToLocation>().insideSnapZone;
+        //holdedByHand = GetComponent<SnapToLocation>().insideSnapZone;
 
         //set grabbed to be equal to boolean value from the OVRGrabbable script
         grabbed = GetComponent<OVRGrabbable>().isGrabbed;
 
         //set objectSnapped boolean to be equal to boolean from SnapToLocation
-        objectSnapped = GetComponent<SnapToLocation>().snapped;
+        objectSnapped = GetComponent<SnapToLocation>().plugedIn;
 
-        //Setting object Rigidbody after it has been snapped into position so it can't fall
+        //Setting object Rigidbody to isKinematic after it has been snapped into position so it can't fall
         // Setting object to be a parent of the drill after it has been snapped into position 
 
         if(objectSnapped)
         {
-            GetComponent<Rigidbody>().useGravity = false;
-            //GetComponent<Rigidbody>().isKinematic = true;
+            
+            GetComponent<Rigidbody>().isKinematic = true;
             transform.SetParent(drill.transform);
         }
 
@@ -71,7 +71,7 @@ public class SnapObject : MonoBehaviour
         if (objectSnapped == false && grabbed == false)
         {
             GetComponent<Rigidbody>().isKinematic = false;
-            GetComponent<Rigidbody>().useGravity = true;
+            
             
         }
     }

@@ -10,8 +10,8 @@ public class SnapToLocation : MonoBehaviour
     //boolean that returns if the object is in the SnapZone radius
     public bool insideSnapZone;
 
-    //returns true if the object has changed the location
-    public bool snapped;
+    //returns true if the object is pluged in
+    public bool plugedIn = false;
 
     // Hose cable that we want to snap to this location
     public GameObject hosePart;
@@ -40,7 +40,7 @@ public class SnapToLocation : MonoBehaviour
         }
     }
 
-    /*Checking if player no longer holds the hose object and if hose is in the snap zone and checking if hose was hold by hand*/
+    /*Checking if player no longer holds the hose object and if hose is in pluged in */
     //If the condition is met, then the object location and rotation are set to desired snap coordinates
     // Also, sets the public boolean Snapped to true for the reference by SnapObject script
 
@@ -50,7 +50,12 @@ public class SnapToLocation : MonoBehaviour
         {
             hosePart.gameObject.transform.position = transform.position;
             hosePart.gameObject.transform.rotation = snapRotationReference.transform.rotation;
-            snapped = true;
+            plugedIn = true;
+        }
+
+        else if (grabbed == true && insideSnapZone == false)
+        {
+            plugedIn = false;
         }
     }
 
