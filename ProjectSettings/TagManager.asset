@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Hose
   - Workbench
+  - Drill
+  - DrillTop
+  - Bolt
+  - BoltTrigger
   layers:
   - Default
   - TransparentFX

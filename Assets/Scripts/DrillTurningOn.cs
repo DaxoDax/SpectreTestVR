@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class DrillTurningOn : MonoBehaviour
 {
-   
-    //okidac napraviti
+    //bool for checking is drill turned on or off
+    public bool drillTurnedOn = false;
 
+    //is drill in collider
+    private bool isDrillInCollider;
 
     //button for turning on the drill
     public OVRInput.Button triggerButtonLeft;
@@ -32,8 +34,17 @@ public class DrillTurningOn : MonoBehaviour
     //speed of trigger when it's pressed
     public float smooth;
 
+   
+    public GameObject bolt;
+    Rigidbody rb;
+
+    private void Start()
+    {
+        rb = bolt.GetComponent<Rigidbody>();
+    }
     private void Update()
     {
+        isDrillInCollider = bolt.GetComponent<BoltBehaviour>().drillInCollider;
         plugedIn = snapPointZone.GetComponent<SnapToLocation>().plugedIn;
         grabbed = drill.GetComponent<OVRGrabbable>().isGrabbed;
 
@@ -57,6 +68,17 @@ public class DrillTurningOn : MonoBehaviour
             {
                 ass.Play();
             }
+
+            //bolt will only rotate if drill is in collider
+            if (isDrillInCollider == true)
+            {
+                bolt.transform.Rotate(new Vector3(0f, drillTopRotation * -1, 0f) * Time.deltaTime);
+            }
+
+            //only if trigger is pressed, Rigidbody that is attached can affect Rigidbody that is attached on bolt and then push bolt only in x axis direction
+            rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+            
         }
 
         //Checking if the drill is grabbed in and if hose is pluged in to turn on the drill for right hand 
@@ -73,6 +95,18 @@ public class DrillTurningOn : MonoBehaviour
             {
                 ass.Play();
             }
+
+            //bolt will only rotate if drill is in collider
+            if (isDrillInCollider == true)
+            {
+                bolt.transform.Rotate(new Vector3(0f, drillTopRotation * -1, 0f) * Time.deltaTime);
+            }
+
+            //only if trigger is pressed, Rigidbody that is attached can affect Rigidbody that is attached on bolt and then push bolt only in x axis direction
+            rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+            ////if trigger is pressed, drill is turned on
+            //drillTurnedOn = true;
         }
 
 
@@ -85,6 +119,12 @@ public class DrillTurningOn : MonoBehaviour
             {
                 ass.Stop();
             }
+
+            //if trigger is not pressed, drill is turned off
+            drillTurnedOn = false;
+
+            //when drill's trigger is not pressed, Rigidbody that is attached on drill top can't affect Rigidbody that is attached on bolt
+            rb.constraints = RigidbodyConstraints.FreezeAll;
         }
        
     }

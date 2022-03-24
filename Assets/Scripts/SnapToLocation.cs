@@ -51,6 +51,8 @@ public class SnapToLocation : MonoBehaviour
             hosePart.gameObject.transform.position = transform.position;
             hosePart.gameObject.transform.rotation = snapRotationReference.transform.rotation;
             plugedIn = true;
+            //it sets hose as child of snapPoint
+            hosePart.transform.SetParent(this.gameObject.transform);
         }
 
         else if (grabbed == true && insideSnapZone == false)

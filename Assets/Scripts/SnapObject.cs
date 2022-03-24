@@ -60,19 +60,17 @@ public class SnapObject : MonoBehaviour
         //Setting object Rigidbody to isKinematic after it has been snapped into position so it can't fall
         // Setting object to be a parent of the drill after it has been snapped into position 
 
-        if(objectSnapped)
-        {
-            
-            GetComponent<Rigidbody>().isKinematic = true;
-            transform.SetParent(drill.transform);
-        }
+        //if(objectSnapped)
+        //{
+        //    GetComponent<Rigidbody>().isKinematic = true;
+        //}
 
-        //Makes sure that the object can still be grabbed by the OVRGrabber script
-        if (objectSnapped == false && grabbed == false)
-        {
-            GetComponent<Rigidbody>().isKinematic = false;
+        ////Makes sure that the object can still be grabbed by the OVRGrabber script
+        //if (objectSnapped == false && grabbed == false)
+        //{
+        //    GetComponent<Rigidbody>().isKinematic = false;
             
             
-        }
+        //}
     }
 }
