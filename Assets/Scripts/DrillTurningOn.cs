@@ -19,7 +19,7 @@ public class DrillTurningOn : MonoBehaviour
    
     //bool that references for drill if is grabbed and if hose is pluged in
     private bool plugedIn;
-    private bool grabbed;
+    private bool drillGrabbed;
     public GameObject drill;
     public GameObject snapPointZone;
 
@@ -46,7 +46,7 @@ public class DrillTurningOn : MonoBehaviour
     {
         isDrillInCollider = bolt.GetComponent<BoltBehaviour>().drillInCollider;
         plugedIn = snapPointZone.GetComponent<SnapToLocation>().plugedIn;
-        grabbed = drill.GetComponent<OVRGrabbable>().isGrabbed;
+        drillGrabbed = drill.GetComponent<OVRGrabbable>().isGrabbed;
 
         //position of trigger when drill is turned on
         Vector3 triggerOnPosition = new Vector3(drillTrigger.transform.localPosition.x, drillTrigger.transform.localPosition.y, minLocalTriggerZ);
@@ -55,7 +55,7 @@ public class DrillTurningOn : MonoBehaviour
         Vector3 triggerOffPosition = new Vector3(drillTrigger.transform.localPosition.x, drillTrigger.transform.localPosition.y, maxLocalTriggerZ);
 
         //Checking if the drill is grabbed in and if hose is pluged in to turn on the drill for left hand 
-        if (OVRInput.Get(triggerButtonLeft, OVRInput.Controller.LTouch)  && grabbed == true && plugedIn == true)
+        if (OVRInput.Get(triggerButtonLeft, OVRInput.Controller.LTouch)  && drillGrabbed == true &&  plugedIn == true )
         {
             //starts rotating drill top when drill is turned on
             drillTop.transform.Rotate(new Vector3(0f, drillTopRotation, 0f) * Time.deltaTime);
@@ -82,7 +82,7 @@ public class DrillTurningOn : MonoBehaviour
         }
 
         //Checking if the drill is grabbed in and if hose is pluged in to turn on the drill for right hand 
-        else if (OVRInput.Get(triggerButtonRight, OVRInput.Controller.RTouch) && grabbed == true && plugedIn == true)
+        else if (OVRInput.Get(triggerButtonRight, OVRInput.Controller.RTouch) && drillGrabbed == true && plugedIn == true)
         {
             //starts rotating drill top when drill is turned on
             drillTop.transform.Rotate(new Vector3(0f, drillTopRotation, 0f) * Time.deltaTime);

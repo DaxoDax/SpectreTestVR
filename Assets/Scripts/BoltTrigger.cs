@@ -10,6 +10,8 @@ public class BoltTrigger : MonoBehaviour
     Rigidbody rb;
     public GameObject bolt;
 
+    public GameObject panel;
+
     private void Start()
     {
         rb = bolt.GetComponent<Rigidbody>();
@@ -24,6 +26,8 @@ public class BoltTrigger : MonoBehaviour
                 ass.Play();
             }
             rb.isKinematic = true;
+            panel.SetActive(true);
+
         }
     }
    
