@@ -18,12 +18,18 @@ public class SnapToLocation : MonoBehaviour
     //Reference another object that we can use to set the rotation
     public GameObject snapRotationReference;
 
-    public AudioSource plugInSound;
-    public AudioClip plugInClip;
-
-   
-
     
+
+
+
+    private void Update()
+    {
+        grabbed = hosePart.GetComponent<OVRGrabbable>().isGrabbed;
+        //Calling a method
+        SnapObject();
+    }
+
+
     //Checking if hose part entered the snap zone radius
     private void OnTriggerEnter(Collider other)
     {
@@ -46,8 +52,6 @@ public class SnapToLocation : MonoBehaviour
 
     /*Checking if player no longer holds the hose object and if hose is in pluged in */
     //If the condition is met, then the object location and rotation are set to desired snap coordinates
-    // Also, sets the public boolean Snapped to true for the reference by SnapObject script
-
     void SnapObject()
     {
         if(grabbed == false && insideSnapZone == true)
@@ -65,32 +69,5 @@ public class SnapToLocation : MonoBehaviour
        
 
        
-    }
-
-    private void Update()
-    {
-       
-        //isItHoldedByHand = hosePart.GetComponent<SnapObject>().holdedByHand;
-        //Checking every frame if the boolean value from the OVRGrabbable script is true or not
-        grabbed = hosePart.GetComponent<OVRGrabbable>().isGrabbed;
-        //Calling a method
-        SnapObject();
-        //plugInSound = plugInSound.GetComponent<AudioSource>();
-        //plugInSound.enabled = true;
-
-    }
-
-    public void PlaySound()
-    {
-        if (!plugInSound.isPlaying)
-        {
-            plugInSound.Play();
-        }     
-    }
-
-    public void EnablingOffAudioSource()
-    {
-        plugInSound = plugInSound.GetComponent<AudioSource>();
-        //plugInSound.enabled = false;
     }
 }

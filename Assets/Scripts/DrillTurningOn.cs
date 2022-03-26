@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class DrillTurningOn : MonoBehaviour
 {
-    
+    /// <summary>
+    /// /this script is script for drill mechanism. Drill will be turned on only if is grabbed by hand, pulled the trigger and if hose is pluged in
+    /// </summary>
 
     //is drill in collider
     private bool isDrillInCollider;
@@ -33,10 +35,7 @@ public class DrillTurningOn : MonoBehaviour
     //speed of trigger when it's pressed
     public float smooth;
 
-    public GameObject vb;
-
-
-   
+    //reference for bolt
     public GameObject bolt;
     Rigidbody rb;
 
@@ -51,7 +50,10 @@ public class DrillTurningOn : MonoBehaviour
         isDrillInCollider = bolt.GetComponent<BoltBehaviour>().drillInCollider;
         plugedIn = snapPointZone.GetComponent<SnapToLocation>().plugedIn;
         drillGrabbed = drill.GetComponent<OVRGrabbable>().isGrabbed;
-        
+
+        bool leftControllerTriggerPressed = OVRInput.Get(triggerButtonLeft, OVRInput.Controller.LTouch);
+        bool rightControllerTriggerPressed = OVRInput.Get(triggerButtonRight, OVRInput.Controller.RTouch);
+
         //position of trigger when drill is turned on
         Vector3 triggerOnPosition = new Vector3(drillTrigger.transform.localPosition.x, drillTrigger.transform.localPosition.y, minLocalTriggerZ);
 
@@ -59,7 +61,7 @@ public class DrillTurningOn : MonoBehaviour
         Vector3 triggerOffPosition = new Vector3(drillTrigger.transform.localPosition.x, drillTrigger.transform.localPosition.y, maxLocalTriggerZ);
 
         //Checking if the drill is grabbed in and if hose is pluged in to turn on the drill for left hand 
-        if (OVRInput.Get(triggerButtonLeft, OVRInput.Controller.LTouch)  && drillGrabbed == true &&  plugedIn == true )
+        if (leftControllerTriggerPressed  && drillGrabbed == true &&  plugedIn == true )
         {
             
             //starts rotating drill top when drill is turned on
@@ -87,7 +89,7 @@ public class DrillTurningOn : MonoBehaviour
         }
 
         //Checking if the drill is grabbed in and if hose is pluged in to turn on the drill for right hand 
-        else if (OVRInput.Get(triggerButtonRight, OVRInput.Controller.RTouch) && drillGrabbed == true && plugedIn == true)
+        else if (rightControllerTriggerPressed && drillGrabbed == true && plugedIn == true)
         {
             
 

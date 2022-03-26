@@ -627,7 +627,7 @@ MonoBehaviour:
   panel: {fileID: 453076680}
   panelTwo: {fileID: 690280467}
   drill: {fileID: 1063223082}
-  isItCOnnected: 0
+  isItConnected: 0
   ass: {fileID: 160671538}
   popUpClip: {fileID: 8300000, guid: d0ed1ad00f7491242b17b61a3e381ef4, type: 3}
   time: 5.5
@@ -2586,7 +2586,7 @@ MonoBehaviour:
   m_text: 'Hello!
 
     You need to pick up the drill in one hand and hose in the
-    other hand and connect the hose to drill'
+    other hand and then connect the hose to drill to turn on the drill.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2613,7 +2613,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.2
+  m_fontSize: 25.55
   m_fontSizeBase: 31.19
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2795,20 +2795,6 @@ MonoBehaviour:
   m_snapOffset: {fileID: 0}
   m_grabPoints:
   - {fileID: 924861426}
---- !u!114 &924861428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924861424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d89cec1ce2d9a140b74f925fce59037, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SnapLocation: {fileID: 1063223082}
-  drill: {fileID: 1220108501}
 --- !u!4 &924861431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4aef5433436460b47aba4ab7c43e3a6e,
@@ -2929,8 +2915,6 @@ MonoBehaviour:
   plugedIn: 0
   hosePart: {fileID: 924861424}
   snapRotationReference: {fileID: 1063223082}
-  plugInSound: {fileID: 1894159866}
-  plugInClip: {fileID: 8300000, guid: 982d57a9d7721ff4bbdc4a63c93eb6ad, type: 3}
 --- !u!1001 &1110718346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3176,49 +3160,6 @@ MonoBehaviour:
   m_snapOffset: {fileID: 0}
   m_grabPoints:
   - {fileID: 1294357299}
---- !u!1 &1266670545
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1266670547}
-  - component: {fileID: 1266670546}
-  m_Layer: 0
-  m_Name: VibrationManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1266670546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1266670545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a44a8d1ab700f4d43bcc6718c225c7f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1266670547
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1266670545}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.8691387, y: 1.1827953, z: 6.005314}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1284233473
 GameObject:
   m_ObjectHideFlags: 0
@@ -3859,7 +3800,7 @@ MonoBehaviour:
   ass: {fileID: 569816483}
   confetti: {fileID: 2126856426}
   bolt: {fileID: 105059856}
-  panel: {fileID: 239924700}
+  congratulationsPanel: {fileID: 239924700}
 --- !u!1001 &1414512157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4733,18 +4674,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &2001378113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001378107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0856032bf879fca479e39a75d1b8bcf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2002246422
 GameObject:
   m_ObjectHideFlags: 0
@@ -4933,7 +4862,6 @@ MonoBehaviour:
   maxLocalTriggerZ: 0.07175507
   drillTrigger: {fileID: 304726796}
   smooth: 15
-  vb: {fileID: 1266670545}
   bolt: {fileID: 105059856}
 --- !u!1001 &2099504334
 PrefabInstance:

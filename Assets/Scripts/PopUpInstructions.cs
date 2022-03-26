@@ -8,7 +8,8 @@ public class PopUpInstructions : MonoBehaviour
     public GameObject panel;
     public GameObject panelTwo;
     public GameObject drill;
-    public bool isItCOnnected;
+
+    public bool isItConnected;
     Animator anim;
 
     public AudioSource ass;
@@ -18,28 +19,34 @@ public class PopUpInstructions : MonoBehaviour
 
     private void Start()
     {
-        anim = panel.GetComponent<Animator>();
-        
+        anim = panel.GetComponent<Animator>();  
     }
 
+
+    /* if drill is connected with hose , panelTwo shows up and disappear after 6.5 seconds*/
     private void Update()
     {
-        isItCOnnected = drill.GetComponent<SnapToLocation>().plugedIn;
-        if(isItCOnnected == true)
+        isItConnected = drill.GetComponent<SnapToLocation>().plugedIn;
+        if(isItConnected == true)
         {
+            //panel shows up
             panelTwo.SetActive(true);
-            Invoke("PanelTwoFadeOut", 6f);
+            //prompt sound plays
             Sound();
+            //prompt sound stops
             Invoke("SoundEnd", 0.5f);
-            Invoke("Death", 6.5f);
+            //panel disappear after determined time
+            Invoke("PanelDisappear", 6.5f);
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
+            //turning on animation
             anim.SetBool("FadeIn", true);
             Sound();
+            // turning on fade out animation
             Invoke("PanelFadeOut", time);
         }
     }
@@ -50,12 +57,9 @@ public class PopUpInstructions : MonoBehaviour
         anim.SetBool("FadeIn", false);
     }
 
-    public void PanelTwoFadeOut()
-    {
-        panelTwo.SetActive(false);
-    }
+   
 
-    public void Death()
+    public void PanelDisappear()
     {
         this.gameObject.SetActive(false);
     }

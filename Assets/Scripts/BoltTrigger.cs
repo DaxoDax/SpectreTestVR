@@ -5,14 +5,15 @@ using UnityEngine;
 public class BoltTrigger : MonoBehaviour
 {
 
-   public  AudioSource ass;
+    public  AudioSource ass;
     public GameObject confetti;
-    ParticleSystem ps;
+    
 
     Rigidbody rb;
     public GameObject bolt;
 
-    public GameObject panel;
+    //panel that shows up when simulation is over
+    public GameObject congratulationsPanel;
 
     private void Start()
     {
@@ -23,13 +24,17 @@ public class BoltTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Bolt")
         {
-           
+           //congratulation sound plays
             if (!ass.isPlaying)
             {
                 ass.Play();
             }
+            // when bolt is screwed is Kinematis becomes true so that bolt can't move anymore
             rb.isKinematic = true;
-            panel.SetActive(true);
+
+            //when bolt touches the trigger, congratulations panel shows up
+            congratulationsPanel.SetActive(true);
+            //turning on particle system
             confetti.GetComponent<ParticleSystem>().Play();
 
         }
