@@ -6,6 +6,8 @@ public class BoltTrigger : MonoBehaviour
 {
 
    public  AudioSource ass;
+    public GameObject confetti;
+    ParticleSystem ps;
 
     Rigidbody rb;
     public GameObject bolt;
@@ -15,6 +17,7 @@ public class BoltTrigger : MonoBehaviour
     private void Start()
     {
         rb = bolt.GetComponent<Rigidbody>();
+        
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +30,7 @@ public class BoltTrigger : MonoBehaviour
             }
             rb.isKinematic = true;
             panel.SetActive(true);
+            confetti.GetComponent<ParticleSystem>().Play();
 
         }
     }

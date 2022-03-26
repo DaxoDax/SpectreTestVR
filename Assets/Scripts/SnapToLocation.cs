@@ -18,7 +18,8 @@ public class SnapToLocation : MonoBehaviour
     //Reference another object that we can use to set the rotation
     public GameObject snapRotationReference;
 
-    private bool isItHoldedByHand;
+    public AudioSource plugInSound;
+    public AudioClip plugInClip;
 
    
 
@@ -29,6 +30,7 @@ public class SnapToLocation : MonoBehaviour
         if(other.gameObject.tag == "Hose")
         {
             insideSnapZone = true;
+            
         }
     }
     //Checking if hose part has left the snap zone radius
@@ -37,6 +39,8 @@ public class SnapToLocation : MonoBehaviour
         if(other.gameObject.tag == "Hose")
         {
             insideSnapZone = false;
+           
+           
         }
     }
 
@@ -54,11 +58,13 @@ public class SnapToLocation : MonoBehaviour
             //it sets hose as child of snapPoint
             hosePart.transform.SetParent(this.gameObject.transform);
         }
-
         else if (grabbed == true && insideSnapZone == false)
         {
             plugedIn = false;
         }
+       
+
+       
     }
 
     private void Update()
@@ -69,5 +75,22 @@ public class SnapToLocation : MonoBehaviour
         grabbed = hosePart.GetComponent<OVRGrabbable>().isGrabbed;
         //Calling a method
         SnapObject();
+        //plugInSound = plugInSound.GetComponent<AudioSource>();
+        //plugInSound.enabled = true;
+
+    }
+
+    public void PlaySound()
+    {
+        if (!plugInSound.isPlaying)
+        {
+            plugInSound.Play();
+        }     
+    }
+
+    public void EnablingOffAudioSource()
+    {
+        plugInSound = plugInSound.GetComponent<AudioSource>();
+        //plugInSound.enabled = false;
     }
 }
