@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class LineRendererConnector : MonoBehaviour
 {
-    public GameObject[] connectors;
+    /// <summary>
+    /// In this script is made for loop where line renderer will go through all objects in connectors array
+    /// </summary>
 
+    //reference for connectors array
+    public GameObject[] connectors;
+    //reference for line renderer
     public LineRenderer line;
 
     private void Start()
@@ -16,6 +21,7 @@ public class LineRendererConnector : MonoBehaviour
 
     private void Update()
     {
+        //with for loop line will go through all objects that are in connectors array
         for (int i = 0; i < connectors.Length; i++)
         {
             line.SetPosition(i, connectors[i].transform.position);
