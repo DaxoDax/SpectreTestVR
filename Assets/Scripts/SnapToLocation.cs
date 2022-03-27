@@ -20,8 +20,11 @@ public class SnapToLocation : MonoBehaviour
 
     
 
-
-
+    Rigidbody rb;
+    private void Start()
+    {
+        rb = hosePart.GetComponent<Rigidbody>();
+    }
     private void Update()
     {
         grabbed = hosePart.GetComponent<OVRGrabbable>().isGrabbed;
@@ -61,10 +64,15 @@ public class SnapToLocation : MonoBehaviour
             plugedIn = true;
             //it sets hose as child of snapPoint
             hosePart.transform.SetParent(this.gameObject.transform);
+            //freezing all positions and rotations of hose
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            
         }
         else if (grabbed == true && insideSnapZone == false)
         {
             plugedIn = false;
+            //unfreezing all positions and rotations of hose
+            rb.constraints = RigidbodyConstraints.None;
         }
        
 

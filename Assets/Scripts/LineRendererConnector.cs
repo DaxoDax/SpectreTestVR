@@ -6,11 +6,12 @@ public class LineRendererConnector : MonoBehaviour
 {
     public GameObject[] connectors;
 
-    private LineRenderer line;
+    public LineRenderer line;
 
     private void Start()
     {
         line = this.gameObject.GetComponent<LineRenderer>();
+        line.positionCount = connectors.Length;
     }
 
     private void Update()

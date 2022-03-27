@@ -8,7 +8,6 @@ public class BoltTrigger : MonoBehaviour
     public  AudioSource ass;
     public GameObject confetti;
     
-
     Rigidbody rb;
     public GameObject bolt;
 

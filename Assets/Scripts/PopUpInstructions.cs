@@ -36,7 +36,7 @@ public class PopUpInstructions : MonoBehaviour
             //prompt sound stops
             Invoke("SoundEnd", 0.5f);
             //panel disappear after determined time
-            Invoke("PanelDisappear", 6.5f);
+            PanelDisappear(6.5f);
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -59,9 +59,9 @@ public class PopUpInstructions : MonoBehaviour
 
    
 
-    public void PanelDisappear()
+    public void PanelDisappear(float timee)
     {
-        this.gameObject.SetActive(false);
+        Destroy(panelTwo, timee);
     }
 
     public void Sound()
